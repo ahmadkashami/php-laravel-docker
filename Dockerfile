@@ -17,4 +17,11 @@ ENV LOG_CHANNEL stderr
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+COPY package.json .
+
 CMD ["/start.sh"]
+
+FROM node:14
+RUN  npm install
+
+CMD ["npm","run","production"]
